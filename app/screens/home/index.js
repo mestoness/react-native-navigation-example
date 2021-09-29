@@ -9,7 +9,7 @@ const Home = ({navigation}) => {
   const getPosts = async () => {
     try {
       const response = await fetch(
-        'https://jsonplaceholder.typicode.com/posts?_page=1',
+        'https://jsonplaceholder.typicode.com/posts?_page=1&_limit=40',
       );
       const json = await response.json();
       setPosts(json);
@@ -29,7 +29,9 @@ const Home = ({navigation}) => {
       {posts && (
         <FlatList
           data={posts}
-          renderItem={Card}
+          renderItem={({item, index}) => {
+            return <Card item={item} />;
+          }}
           keyExtractor={item => item.id}
         />
       )}

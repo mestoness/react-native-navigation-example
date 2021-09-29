@@ -5,5 +5,9 @@ export const style = StyleSheet.create({
     padding: 20,
     borderWidth: 1,
     borderColor: '#d4d2d2',
+    borderRadius:5
   },
+  cartTitle:{
+    textTransform:"capitalize"
+  }
 });

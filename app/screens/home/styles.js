@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const style = StyleSheet.create({
   view: {
     flex: 1,
-    padding: 24,
+    padding: 15,
   },
   center: {
     alignItems: 'center',
@@ -16,7 +16,7 @@ export const style = StyleSheet.create({
     paddingTop: 10,
   },
   headerTitle: {
-    fontSize: 30,
+    fontSize: 25,
     marginBottom: 20,
   },
 });
