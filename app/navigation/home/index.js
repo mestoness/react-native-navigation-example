@@ -1,18 +1,34 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen, DetailsScreen} from '../../screens';
-const HomeStack = createStackNavigator();
+import {HomeScreen, AccountScreen} from '../../screens';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+const Tab = createBottomTabNavigator();
 const HomeStackScreen = () => {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
+    <Tab.Navigator
+      tabBarOptions={{inactiveTintColor: 'grey', activeTintColor: 'black'}}>
+      <Tab.Screen
         name="Home"
         component={HomeScreen}
-        options={{headerShown: false}}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
       />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
-    </HomeStack.Navigator>
+      <Tab.Screen
+        name="Account"
+        component={AccountScreen}
+        options={{
+          tabBarLabel: 'Account',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 export default HomeStackScreen;
